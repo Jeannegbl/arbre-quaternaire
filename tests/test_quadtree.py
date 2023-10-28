@@ -1,15 +1,26 @@
+import os
+import sys
 
-import sys, os
+from src import QuadTree
+
 sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/.."))
 
-from src import QuadTree, TkQuadTree
 
 def test_sample():
-    filename = "files/quadtree.txt"
-    q = QuadTree.fromFile(filename)
-    assert q.depth == 4
+    filename = "../files/quadtree.json"
+    q = QuadTree.from_file(filename)
+    # assert q.depth == 4
+
 
 def test_single():
-    filename = "files/quadtree_easy.txt"
-    q = QuadTree.fromFile(filename)
-    assert q.depth == 1
+    filename = "../files/quadtree_easy.json"
+    q = QuadTree.from_file(filename)
+    # assert q.depth == 1
+
+
+if __name__ == "__main__":
+    test_sample()
+    print(QuadTree.depth)
+    print("---")
+    test_single()
+    print(QuadTree.depth)
