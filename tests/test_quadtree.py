@@ -5,22 +5,16 @@ from src import QuadTree
 
 sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/.."))
 
+QuadTree.noeud = [1]
+QuadTree.decompte = 1
+
 
 def test_sample():
-    filename = "../files/quadtree.json"
-    q = QuadTree.from_file(filename)
-    # assert q.depth == 4
+    filename = "files/quadtree.json"
+    assert QuadTree.from_file(filename) == 4
 
 
 def test_single():
-    filename = "../files/quadtree_easy.json"
-    q = QuadTree.from_file(filename)
-    # assert q.depth == 1
-
-
-if __name__ == "__main__":
-    test_sample()
-    print(QuadTree.depth)
-    print("---")
-    test_single()
-    print(QuadTree.depth)
+    filename = "files/quadtree_easy.json"
+    QuadTree.from_file(filename)
+    assert QuadTree.from_file(filename) == 1
