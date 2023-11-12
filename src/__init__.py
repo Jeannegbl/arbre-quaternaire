@@ -1,1 +1,1 @@
-from .quadtree import QuadTree, TkQuadTree, RunTkQuadTree
+from .quadtree import QuadTree, TkQuadTree
