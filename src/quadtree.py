@@ -48,14 +48,16 @@ class QuadTree:
         Return:
             QuadTree: Crée le Quadtree associé selon le fichier en argument.
         """
-
-        with open(filename, 'r') as file:
-            data = json.load(file)
-            QuadTree.nb = 1
-            QuadTree.depth = 0
-            QuadTree.decompte = 1
-            QuadTree.noeud = [1]
-            return QuadTree.from_list(data)
+        try:
+            with open(filename, 'r') as file:
+                data = json.load(file)
+                QuadTree.nb = 1
+                QuadTree.depth = 0
+                QuadTree.decompte = 1
+                QuadTree.noeud = [1]
+                return QuadTree.from_list(data)
+        finally:
+            file.close()
 
     @staticmethod
     def from_list(data: list) -> QuadTree:
